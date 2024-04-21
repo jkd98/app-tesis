@@ -41,3 +41,5 @@ function crearData(){
   db.teses.insertMany(data);
   db.estudiantes.insertOne(user);
  }
+
+ insertarData();
