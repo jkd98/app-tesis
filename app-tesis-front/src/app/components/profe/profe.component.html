@@ -1,0 +1,93 @@
+
+
+
+  <div class="container mx-auto flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-lg">
+        <form [formGroup]="profesorForm" (ngSubmit)="onSubmit()" 
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">
+                Nombre
+              </label>
+              <input formControlName="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre" type="text" placeholder="Nombre">
+              @if (profesorForm.get('nombre')!.invalid && (profesorForm.get('nombre')!.dirty || profesorForm.get('nombre')!.touched)) {
+                <p class="text-red-500 text-xs italic" >Nombre es requerido.</p>
+            }
+            </div>
+            
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="apellido">
+                Apellido
+              </label>
+              <input formControlName="apellido" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="apellido" type="text" placeholder="Apellido">
+              @if (profesorForm.get('apellido')!.invalid && (profesorForm.get('apellido')!.dirty || profesorForm.get('apellido')!.touched)) {
+                <p class="text-red-500 text-xs italic" >Apellido es requerido.</p>
+              }
+            </div>
+          
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Email
+              </label>
+              <input formControlName="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
+              @if (profesorForm.get('email')!.invalid && (profesorForm.get('email')!.dirty || profesorForm.get('email')!.touched)) {
+                <p class="text-red-500 text-xs italic" >Email no es válido</p>
+              }
+            </div>
+          
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="pass">
+                Contraseña
+              </label>
+              <input formControlName="pass" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pass" type="password" placeholder="Contraseña">
+              @if(profesorForm.get('pass')!.invalid && (profesorForm.get('pass')!.dirty || profesorForm.get('pass')!.touched)){
+                <p class="text-red-500 text-xs italic">Contraseña es requerida.</p>
+              }
+            </div>
+          
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="departamento">
+                Departamento
+              </label>
+              <input formControlName="departamento" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="departamento" type="text" placeholder="Departamento">
+              @if (profesorForm.get('departamento')!.invalid && (profesorForm.get('departamento')!.dirty || profesorForm.get('departamento')!.touched)) {
+                <p class="text-red-500 text-xs italic">Departamento es requerido.</p>
+              }
+            </div>
+          
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="especialidad">
+                Especialidad
+              </label>
+              <input formControlName="especialidad" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="especialidad" type="text" placeholder="Especialidad">
+              @if (profesorForm.get('especialidad')!.invalid && (profesorForm.get('especialidad')!.dirty || profesorForm.get('especialidad')!.touched)) {
+                  <p class="text-red-500 text-xs italic">Especialidad es requerida.</p>
+              }
+            </div>
+          
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="gradoAcademico">
+                  Grado Académico
+                </label>
+                <input formControlName="gradoAcademico" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="gradoAcademico" type="text" placeholder="Grado Académico">
+              @if (profesorForm.get('gradoAcademico')!.invalid && (profesorForm.get('gradoAcademico')!.dirty || profesorForm.get('gradoAcademico')!.touched)) {
+                  <p class="text-red-500 text-xs italic">Grado Académico es requerido.</p>
+              }
+              </div>
+            
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="experiencia">
+                  Experiencia
+                </label>
+                <input formControlName="experiencia" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="experiencia" type="number" placeholder="Experiencia">
+              </div>
+            
+              <div class="flex items-center justify-between">
+                <button type="submit" [disabled]="profesorForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                  Registrar Profesor
+                </button>
+              </div>
+        </form>
+    </div>
+ </div>

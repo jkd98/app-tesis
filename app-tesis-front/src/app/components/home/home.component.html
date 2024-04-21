@@ -1,0 +1,82 @@
+<div class="container mx-auto p-8">
+    <h2 class="text-xl font-bold">Lista de Tesis</h2>
+    <div class="flex flex-wrap justify-between items-center mb-4">
+        <!-- Filtros -->
+        <div class="flex flex-wrap items-center space-x-4">
+            <label for="filtroArea" class="text-sm font-medium">Filtrar por área:</label>
+            <select [(ngModel)]="areaEstudio" id="filtroArea" class="border rounded p-1">
+                <option value="">Todas</option>
+                @for (categoria of categorias; track $index) {
+                  <option [value]="categoria._id">{{categoria._id}}</option>
+                }
+                <!-- Agrega más opciones aquí -->
+            </select>
+            <label for="filtroGrado" class="text-sm font-medium">Grado Académico:</label>
+            <input [(ngModel)]="grado" id="filtroGrado" type="text" class="border rounded p-1" placeholder="Grado Académico">
+            <label for="filtroAutor" class="text-sm font-medium">Filtrar por autor:</label>
+            <input [(ngModel)]="autor" id="filtroAutor" type="text" class="border rounded p-1" placeholder="Nombre del autor">
+            <label for="filtroFechaInicio" class="text-sm font-medium">Desde:</label>
+            <input [(ngModel)]="iniF" id="filtroFechaInicio" type="date" class="border rounded p-1">
+            <label for="filtroFechaFin" class="text-sm font-medium">Hasta:</label>
+            <input [(ngModel)]="fin" id="filtroFechaFin" type="date" class="border rounded p-1">
+          
+            <button (click)="buscarTesisConFiltros()" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Filtrar</button>
+            
+        </div>
+    </div>
+    
+  
+    <!-- Grid de tesis -->
+    <div class="max-h-screen overflow-y-auto">
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Título
+            </th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Autores
+            </th>
+            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Fecha
+            </th>
+            <th class="px-6 py-3 bg-gray-50"></th> <!-- Espacio para el botón de ver más -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se repite para cada tesis -->
+          @if(tesisList.length>0){
+              @for (tesis of tesisList; track $index) {
+    
+                  <tr >
+                    <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
+                      {{ tesis.titulo }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
+                      <ul class="list-disc list-inside">
+                        @for (autor of tesis.autores; track $index) {
+                            <li >{{ autor }}</li>
+                        }
+                      </ul>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
+                      {{ tesis.fechaPublicacion | date:'dd/MM/yyyy' }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
+                      @if (rol!='adm') {
+                      <button (click)="redirectOneTesis(tesis._id)"class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Ver más</button>
+                      }
+                      <button (click)="editOneTesis(tesis._id)"class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Editar Tesis</button>
+                      <button (click)="deleteOneTesis(tesis._id)"class="bg-blue-500 text-white font-semibold px-4 py-2 rounded">Borrar Tesis</button>
+                      
+                    </td>
+                  </tr>
+              }
+          }
+          
+          <!-- Fin de repetición -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

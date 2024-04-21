@@ -1,0 +1,59 @@
+
+  <div class="container mx-auto flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-lg ">
+      <form [formGroup]="estudianteForm" (ngSubmit)="onSubmit()" 
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre">Nombre:</label>
+          <input formControlName="nombre" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          @if (estudianteForm.get('nombre')!.invalid && (estudianteForm.get('nombre')!.dirty || estudianteForm.get('nombre')!.touched)) {
+            <p class="text-red-500 text-xs italic" >Nombre es requerido.</p>
+        }
+        </div>
+      
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="apellido">Apellido:</label>
+          <input formControlName="apellido" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          @if (estudianteForm.get('apellido')!.invalid && (estudianteForm.get('apellido')!.dirty || estudianteForm.get('apellido')!.touched)) {
+            <p class="text-red-500 text-xs italic" >Apellido es requerido.</p>
+          }
+        </div>
+      
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+          <input formControlName="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          @if (estudianteForm.get('email')!.invalid && (estudianteForm.get('email')!.dirty || estudianteForm.get('email')!.touched)) {
+            <p class="text-red-500 text-xs italic" >Email no es válido</p>
+          }
+        </div>
+      
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="pass">Contraseña:</label>
+          <input formControlName="pass" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          @if(estudianteForm.get('pass')!.invalid && (estudianteForm.get('pass')!.dirty || estudianteForm.get('pass')!.touched)){
+            <p class="text-red-500 text-xs italic">Contraseña es requerida.</p>
+          }
+        </div>
+      
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="carrera">Carrera:</label>
+          <input formControlName="carrera" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          @if (estudianteForm.get('carrera')!.invalid && (estudianteForm.get('carrera')!.dirty || estudianteForm.get('carrera')!.touched)) {
+            <p class="text-red-500 text-xs italic">Carrera es requerida.</p>
+          }
+        </div>
+      
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="semestre">Semestre:</label>
+          <input formControlName="semestre" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          @if (estudianteForm.get('semestre')!.invalid && (estudianteForm.get('semestre')!.dirty || estudianteForm.get('semestre')!.touched)) {
+            <p class="text-red-500 text-xs italic">Semestre es requerido.</p>
+          }
+        </div>
+      
+      <button type="submit" [disabled]="estudianteForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Registrar Estudiante</button>
+      </form>
+      
+    </div>
+  </div>

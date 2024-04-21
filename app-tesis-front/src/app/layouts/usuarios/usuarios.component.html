@@ -1,0 +1,24 @@
+<div class="min-h-screen flex flex-col lg:flex-row">
+  <!-- Barra lateral -->
+  <nav class="bg-gray-800 w-full lg:w-2/6 h-auto p-4 flex flex-col justify-center">
+    <ul class="text-center">
+      <li class="my-2">
+        <a [routerLink]="['/regist/profesor']" routerLinkActive="text-white" class="text-gray-300 hover:text-white">Registrar Profesor</a>
+      </li>
+      <li class="my-2">
+        <a [routerLink]="['/regist/estudiante']" routerLinkActive="text-white" class="text-gray-300 hover:text-white">Registrar Estudiante</a>
+      </li>
+      <li class="my-2">
+        <a [routerLink]="['/regist/auth']" routerLinkActive="text-white" class="text-gray-300 hover:text-white">Ingresar Al Sistema</a>
+      </li>
+      <<!-- li class="my-2">
+        <a [routerLink]="['/inicio/tesis']" routerLinkActive="text-white" class="text-gray-300 hover:text-white">Inicio</a>
+      </li> -->
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="w-full lg:w-3/6 p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

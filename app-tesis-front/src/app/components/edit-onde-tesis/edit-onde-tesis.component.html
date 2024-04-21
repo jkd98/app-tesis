@@ -1,0 +1,46 @@
+<div class="container mx-auto py-6">
+    <form [formGroup]="tesisForm" 
+    class="max-w-lg mx-auto bg-white rounded-lg shadow-md overflow-hidden p-6"
+    (ngSubmit)="loadSaved()" 
+    >
+      <h2 class="text-2xl font-bold mb-4">Editar Tesis</h2>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Título:</label>
+        <input formControlName="titulo" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Autores:</label>
+        <input formControlName="autores" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Fecha de Publicación:</label>
+        <input formControlName="fechaPublicacion" type="date" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Institución:</label>
+        <input formControlName="institucion" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Área de Estudio:</label>
+        <input formControlName="areaEstudio" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Resumen:</label>
+        <textarea formControlName="resumen" class="input-field"></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Idioma:</label>
+        <input formControlName="idioma" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Formato:</label>
+        <input formControlName="formato" class="input-field" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Grado:</label>
+        <input formControlName="grado" class="input-field" />
+      </div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Guardar Cambios</button>
+    </form>
+  </div>
+  
